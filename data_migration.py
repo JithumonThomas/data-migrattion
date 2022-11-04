@@ -45,11 +45,11 @@ fields = ['is_company','type','image','category_id','name','ref','payment_respon
 
 
 def create_value(data): 
-
+    
     contact_ids_list = False
     if data['child_ids']:
        
-        
+        contact_ids_list = []
         for id in data['child_ids']:
             
             contact_ids_old = sock.execute_kw(dbname, uid, pwd,'res.partner', 'search', [[['id', '=', id]]])
@@ -61,7 +61,7 @@ def create_value(data):
                 
                 partner_contact_ids = partner_contact[0]['id'] if partner_contact  else False
                 if partner_contact_ids:
-                   
+                    print(partner_contact_ids)
                     contact_ids_list.append(partner_contact_ids)
                     
                 
@@ -81,23 +81,7 @@ def create_value(data):
             user_id = res_user[0]['id'] if res_user else False
         
         
-    # if data['sale_warn']:
-    #     partner_sale_warn = models.execute_kw(db, u_id, password,'res.partner', 'search_read', [[['sale_warn', '=', data['sale_warn']]]])
-    #     sale_warn = partner_sale_warn[0]['sale_warn']
-
-    # if data['purchase_warn']:
-    #     partner_purchase_warn = models.execute_kw(db, u_id, password,'res.partner', 'search_read', [[['purchase_warn', '=', data['purchase_warn']]]])
-    #     purchase_warn = partner_purchase_warn[0]['purchase_warn']
-        
-    # if data['invoice_warn']:
-    #     partner_invoice_warn = models.execute_kw(db, u_id, password,'res.partner', 'search_read', [[['invoice_warn', '=', data['invoice_warn']]]])
-    #     invoice_warn = partner_invoice_warn[0]['invoice_warn']
-
-    # if data['picking_warn']:
-    #     partner_picking_warn = models.execute_kw(db, u_id, password,'res.partner', 'search_read', [[['picking_warn', '=', data['picking_warn']]]])
-       
-    #     picking_warn = partner_picking_warn[0]['picking_warn']
-      
+   
        
     if data['title']:
         
@@ -180,7 +164,7 @@ def create_value(data):
         'user_id':user_id if partner_login else False,
         'is_company':data['is_company'],
         'customer_rank':1 if data['customer'] else 0,
-        'supplier_rank': 1 if data['state_id'] else 0 ,
+        'supplier_rank': 1 if data['supplier'] else 0 ,
         'name':data['name'],
         'type':False if data['type']=='default' or data['type']=='sales_representative' else data['type'],
         'street': data['street'] ,
@@ -196,7 +180,7 @@ def create_value(data):
         'email':data['email'],
         'website':data['website'],
         'lang':data['lang'],  
-        
+        'team_id':1 if data['section_id'] else False,
         # 'property_product_pricelist':data['property_product_pricelist'][0] if data['property_product_pricelist'] else False,
         'ref':data['ref'],
       
@@ -215,7 +199,7 @@ def create_value(data):
         'parent_id': partner_parent_id if partner_parent_id else False,
     }   
     
-    cre = models.execute_kw(db, u_id, password,'res.partner', 'create', [value])
+    models.execute_kw(db, u_id, password,'res.partner', 'create', [value])
     # print(cre)
 # def create_vendor_product(data):
 #     print(data)
@@ -240,8 +224,8 @@ def create_value(data):
 #         create_vendor_product(products)
         
 # ---------------------------------------suppliers_records---------------------------------------
-for supplier_records in suppliers_records:
-    suppliers = sock.execute_kw(dbname, uid, pwd,'res.partner', 'read', [supplier_records],{'fields': fields})
+for supplier_record in suppliers_records:
+    suppliers = sock.execute_kw(dbname, uid, pwd,'res.partner', 'read', [supplier_record],{'fields': fields})
   
     create_value(suppliers)  
 

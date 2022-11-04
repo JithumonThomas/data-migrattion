@@ -22,11 +22,16 @@ products_including_suppliers = sock.execute_kw(dbname, uid, pwd, 'product.produc
 def create_vendor_product(data):
     pro_cate = False
     if data['categ_id']:
-        print(data['categ_id'])
+        
+        print("---",data['categ_id'])
+        # exit()
         
     seller_ids = False
+    
     if data['seller_ids']:
+        print(data['seller_ids'])
         seller_ids = []
+        
         for id in data['seller_ids']:
             
             vendor_old = sock.execute_kw(dbname, uid, pwd,'res.partner', 'search', [[['id', '=', id]]])
@@ -54,7 +59,9 @@ def create_vendor_product(data):
 
     }
     print(value)
-    
+    pro = models.execute_kw(db, u_id, password,'product.template', 'create', [value])
+    print(pro)
+    exit()
         
 
     
