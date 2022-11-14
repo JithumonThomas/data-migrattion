@@ -1,0 +1,172 @@
+
+from  xmlrpc import client
+import xmlrpc.client
+import csv
+
+# username = 'admin'
+# pwd = '@Adamson#ERP'
+# dbname = 'adamson_oct19_2022'
+# sock_common = client.ServerProxy('http://adamson.dev.bds.space/xmlrpc/common')
+# uid = sock_common.login(dbname, username, pwd)
+# sock = client.ServerProxy('http://adamson.dev.bds.space/xmlrpc/object')
+
+
+
+# url = 'http://3.109.84.120:5079'
+# db = 'Adamson15-Base-test-migrate'
+# user = 'admin'
+# password = '@Ad@m$0n*#135'
+# common = xmlrpc.client.ServerProxy('{}/xmlrpc/2/common'.format(url))
+# u_id = common.authenticate(db, user, password, {})
+# version = common.version()
+# models = xmlrpc.client.ServerProxy('{}/xmlrpc/2/object'.format(url))
+
+username = 'admin'
+pwd = 'admin'
+dbname = 'Adamson_nov_22'
+sock_common = client.ServerProxy('http://localhost:8069/xmlrpc/common')
+uid = sock_common.login(dbname, username, pwd)
+sock = client.ServerProxy('http://localhost:8069/xmlrpc/object')
+
+
+url = 'http://localhost:8007'
+db = 'Adamson15-Base_nov5_22'
+user = 'admin'
+password = 'admin'
+common = xmlrpc.client.ServerProxy('{}/xmlrpc/2/common'.format(url))
+u_id = common.authenticate(db, user, password, {})
+version = common.version()
+models = xmlrpc.client.ServerProxy('{}/xmlrpc/2/object'.format(url))
+
+fields = ['id','is_company','type','image','category_id','name','ref','payment_responsible_id',
+        'supp_name','receiving_person_id','street','street2','city','state_id','zip','country_id','website','phone','phone2','mobile','fax','email','user_id','section_id',
+        'lang','date','vat_number','customer','supplier','carrier','insurance_amount','active',
+        'opt_out','notification_email_send','stock_customer_rentals','rent_pricelist','property_product_pricelist','property_product_pricelist_purchase',
+        'property_stock_outsourcing','property_stock_customer','property_stock_supplier','ship_method_ids',
+        'payment_next_action','unreconciled_aml_ids','bank_ids',
+        'property_account_receivable','property_account_payable','sale_warn','purchase_warn','picking_warn','invoice_warn','comment','child_ids','function','title','parent_id']
+    
+
+
+both_parent_records = sock.execute_kw(dbname, uid, pwd, 'res.partner', 'search',[[['supplier','=',True],['customer','=',True],['parent_id','!=',False]]])
+both_customer_records = sock.execute_kw(dbname, uid, pwd, 'res.partner', 'search',[[['customer','=',True],['parent_id','!=',False]]])
+both_suppliers_records = sock.execute_kw(dbname, uid, pwd, 'res.partner', 'search',[[['supplier','=',True],['parent_id','!=',False]]])
+
+
+print(len(both_parent_records),len(both_customer_records),len(both_suppliers_records))
+exit()
+both_records = sock.execute_kw(dbname, uid, pwd, 'res.partner', 'search',[[['supplier','=',True],['customer','=',True]]])
+
+customer_records = sock.execute_kw(dbname, uid, pwd, 'res.partner', 'search',[[['customer','=',True]]])
+suppliers_records = sock.execute_kw(dbname, uid, pwd, 'res.partner', 'search',[[['supplier','=',True]]])
+
+
+sup = set(suppliers_records) - set(both_records)
+suppliers_records_only = set(sup) - set(both_records)
+customer_records_only = set(customer_records) - set(both_records)
+# customer_records = sock.execute_kw(dbname, uid, pwd, 'res.partner', 'search',[[['customer','=',True]]])
+# suppliers_records = sock.execute_kw(dbname, uid, pwd, 'res.partner', 'search',[[['supplier','=',True]]])
+
+# suppliers_records_only = set(suppliers_records) - set(both_records)
+# customer_records_only = set(customer_records) - set(both_records)
+
+
+def write_value(data):
+   
+    print(data['parent_id'])
+    
+    partner = models.execute_kw(db, u_id, password,'res.partner', 'search_read', [[['name', '=', data['name']]]])
+    
+    id = partner[0]['id'] if partner else False
+    
+    contact_ids_list = False
+    
+    if data['child_ids']:
+        
+            contact_ids_list = []
+            for id in data['child_ids']:
+            
+                contact_ids_old = sock.execute_kw(dbname, uid, pwd,'res.partner', 'search', [[['id', '=', id]]])
+                contact = sock.execute_kw(dbname, uid, pwd,'res.partner', 'read', [contact_ids_old])[0] if contact_ids_old else False
+            
+                if contact:
+                    
+                    partner_contact = models.execute_kw(db, u_id, password,'res.partner', 'search_read', [[['name', '=', contact['name']]]])
+                    
+                    partner_contact_ids = (0, 0, {partner_contact[0]['id']}) if partner_contact  else False
+                    if partner_contact_ids:
+                        
+                        contact_ids_list.append(partner_contact_ids)
+   
+    parent_id  =False
+   
+    if data['parent_id']:
+        
+        partner_parent_id = models.execute_kw(db, u_id, password,'res.partner', 'search_read', [[['name', '=', data['parent_id'][1]]]])
+       
+        parent_id  = partner_parent_id[0]['id'] if partner_parent_id  else False
+       
+    
+   
+   
+   
+    try:
+        models.execute_kw(db, u_id, password, 'res.partner', 'write',[[id], {'child_ids': contact_ids_list}])
+        print("data writed -----> and countinue ..")
+    except BaseException as error:
+       
+            writer = csv.writer(file)
+            writer.writerow([data['id'],data['name'], error])
+         
+            print('An exception occurred: {}'.format(error))
+   
+    
+with open('data_migration_write_error.csv', 'w', newline='') as file:
+    
+    
+    for both_record in both_records:
+        both = sock.execute_kw(dbname, uid, pwd,'res.partner', 'read', [both_record],{'fields': fields}) 
+        write_value(both)  
+    # for suppliers_record in suppliers_records_only:
+    #     suppliers = sock.execute_kw(dbname, uid, pwd,'res.partner', 'read', [suppliers_record],{'fields': fields})
+    
+    #     write_value(suppliers)  
+
+    # # # ---------------------------------------customer_records---------------------------------------
+    # for customer_record in customer_records:
+    #         customer = sock.execute_kw(dbname, uid, pwd,'res.partner', 'read', [customer_record],{'fields': fields})     
+    #         write_value(customer)  
+
+
+
+
+
+
+
+
+
+
+
+
+     # contact_ids_list = False
+        # if data['child_ids']:
+            
+        #     contact_ids_list = []
+        #     for id in data['child_ids']:
+            
+        #         contact_ids_old = sock.execute_kw(dbname, uid, pwd,'res.partner', 'search', [[['id', '=', id]]])
+            
+        #         contact = sock.execute_kw(dbname, uid, pwd,'res.partner', 'read', [contact_ids_old])[0] if contact_ids_old else False
+            
+        #         if contact:
+                    
+        #             partner_contact = models.execute_kw(db, u_id, password,'res.partner', 'search_read', [[['name', '=', contact['name']]]])
+                    
+        #             partner_contact_ids =  (4, partner_contact[0]['id'], ) if partner_contact  else False
+                    
+        #             if partner_contact_ids:
+                        
+        #                 contact_ids_list.append(partner_contact_ids)
+        #                 models.execute_kw(db, u_id, password,'res.partner','write', [[id],vals])
+        #                 print("vals",vals)
+        #             exit()

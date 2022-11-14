@@ -1,0 +1,317 @@
+56855
+{'code': False, 'mrp_bom_operations_product_ids': [], 'product_id': [27207, '100-0000'], 'product_uom': [34, 'PCE'], 'prenote': False, 'product_name': 'Prototype Component', 'fixed_date': False, 'fixed_by': False, 'product_qty': 1.0, 'routing_id': False, 'sub_products': [], 'type': 'normal', 'id': 56855, 'bom_lines': []}
+An exception occurred: <Fault warning -- UserError
+
+The operation cannot be completed:
+- Create/update: a mandatory field is not set.
+- Delete: another model requires the record being deleted. If possible, archive it instead.
+
+Model: Bill of Material (mrp.bom), Field: Product (product_tmpl_id): ''>
+205
+206
+207
+208
+289
+36340
+{'code': False, 'mrp_bom_operations_product_ids': [], 'product_id': [17289, '102-0001'], 'product_uom': [34, 'PCE'], 'prenote': False, 'product_name': "Wood 2' x 2' x 8' Spruce", 'fixed_date': False, 'fixed_by': False, 'product_qty': 0.08, 'routing_id': False, 'sub_products': [], 'type': 'normal', 'id': 36340, 'bom_lines': []}
+An exception occurred: <Fault warning -- UserError
+
+The operation cannot be completed:
+- Create/update: a mandatory field is not set.
+- Delete: another model requires the record being deleted. If possible, archive it instead.
+
+Model: Bill of Material (mrp.bom), Field: Product (product_tmpl_id): ''>
+290
+35904
+{'code': False, 'mrp_bom_operations_product_ids': [], 'product_id': [17288, '102-0002'], 'product_uom': [34, 'PCE'], 'prenote': False, 'product_name': 'Wood Y10 Trim', 'fixed_date': False, 'fixed_by': False, 'product_qty': 2.0, 'routing_id': False, 'sub_products': [], 'type': 'normal', 'id': 35904, 'bom_lines': []}
+An exception occurred: <Fault warning -- UserError
+
+The operation cannot be completed:
+- Create/update: a mandatory field is not set.
+- Delete: another model requires the record being deleted. If possible, archive it instead.
+
+Model: Bill of Material (mrp.bom), Field: Product (product_tmpl_id): ''>
+291
+36337
+{'code': False, 'mrp_bom_operations_product_ids': [], 'product_id': [17288, '102-0002'], 'product_uom': [34, 'PCE'], 'prenote': False, 'product_name': 'Wood Y10 Trim', 'fixed_date': False, 'fixed_by': False, 'product_qty': 0.15, 'routing_id': False, 'sub_products': [], 'type': 'normal', 'id': 36337, 'bom_lines': []}
+An exception occurred: <Fault warning -- UserError
+
+The operation cannot be completed:
+- Create/update: a mandatory field is not set.
+- Delete: another model requires the record being deleted. If possible, archive it instead.
+
+Model: Bill of Material (mrp.bom), Field: Product (product_tmpl_id): ''>
+292
+37434
+{'code': False, 'mrp_bom_operations_product_ids': [], 'product_id': [17288, '102-0002'], 'product_uom': [34, 'PCE'], 'prenote': False, 'product_name': 'Wood Y10 Trim', 'fixed_date': False, 'fixed_by': False, 'product_qty': 2.0, 'routing_id': False, 'sub_products': [], 'type': 'normal', 'id': 37434, 'bom_lines': []}
+An exception occurred: <Fault warning -- UserError
+
+The operation cannot be completed:
+- Create/update: a mandatory field is not set.
+- Delete: another model requires the record being deleted. If possible, archive it instead.
+
+Model: Bill of Material (mrp.bom), Field: Product (product_tmpl_id): ''>
+293
+294
+295
+
+
+329
+36262
+{'code': False, 'mrp_bom_operations_product_ids': [], 'product_id': [17293, '105-0004'], 'product_uom': [34, 'PCE'], 'prenote': False, 'product_name': 'Port Tube 10MX/12MX - 3" x 3.75" x 0.12"', 'fixed_date': False, 'fixed_by': False, 'product_qty': 2.0, 'routing_id': False, 'sub_products': [], 'type': 'normal', 'id': 36262, 'bom_lines': []}
+An exception occurred: <Fault warning -- UserError
+
+The operation cannot be completed:
+- Create/update: a mandatory field is not set.
+- Delete: another model requires the record being deleted. If possible, archive it instead.
+
+Model: Bill of Material (mrp.bom), Field: Product (product_tmpl_id): ''>
+330
+36254
+{'code': False, 'mrp_bom_operations_product_ids': [], 'product_id': [17293, '105-0004'], 'product_uom': [34, 'PCE'], 'prenote': False, 'product_name': 'Port Tube 10MX/12MX - 3" x 3.75" x 0.12"', 'fixed_date': False, 'fixed_by': False, 'product_qty': 2.0, 'routing_id': False, 'sub_products': [], 'type': 'normal', 'id': 36254, 'bom_lines': []}
+An exception occurred: <Fault warning -- UserError
+
+The operation cannot be completed:
+- Create/update: a mandatory field is not set.
+- Delete: another model requires the record being deleted. If possible, archive it instead.
+
+Model: Bill of Material (mrp.bom), Field: Product (product_tmpl_id): ''>
+331
+332
+333
+334
+335
+336
+36275
+{'code': False, 'mrp_bom_operations_product_ids': [], 'product_id': [17297, '105-0010'], 'product_uom': [34, 'PCE'], 'prenote': False, 'product_name': 'Port Tube T21 5.5" OD x 8\'', 'fixed_date': False, 'fixed_by': False, 'product_qty': 0.7, 'routing_id': False, 'sub_products': [], 'type': 'normal', 'id': 36275, 'bom_lines': []}
+An exception occurred: <Fault warning -- UserError
+
+The operation cannot be completed:
+- Create/update: a mandatory field is not set.
+- Delete: another model requires the record being deleted. If possible, archive it instead.
+
+Model: Bill of Material (mrp.bom), Field: Product (product_tmpl_id): ''>
+337
+36279
+{'code': False, 'mrp_bom_operations_product_ids': [], 'product_id': [17298, '105-0011'], 'product_uom': [34, 'PCE'], 'prenote': False, 'product_name': 'Port Tube Y18 4" x 4.75" x 0.12"', 'fixed_date': False, 'fixed_by': False, 'product_qty': 8.0, 'routing_id': False, 'sub_products': [], 'type': 'normal', 'id': 36279, 'bom_lines': []}
+An exception occurred: <Fault warning -- UserError
+
+The operation cannot be completed:
+- Create/update: a mandatory field is not set.
+- Delete: another model requires the record being deleted. If possible, archive it instead.
+
+Model: Bill of Material (mrp.bom), Field: Product (product_tmpl_id): ''>
+338
+36230
+{'code': False, 'mrp_bom_operations_product_ids': [], 'product_id': [17292, '105-0012'], 'product_uom': [34, 'PCE'], 'prenote': False, 'product_name': 'Port Tube Y10 Sub 4" x 6" x 0.125"', 'fixed_date': False, 'fixed_by': False, 'product_qty': 8.0, 'routing_id': False, 'sub_products': [], 'type': 'normal', 'id': 36230, 'bom_lines': []}
+An exception occurred: <Fault warning -- UserError
+
+The operation cannot be completed:
+- Create/update: a mandatory field is not set.
+- Delete: another model requires the record being deleted. If possible, archive it instead.
+
+Model: Bill of Material (mrp.bom), Field: Product (product_tmpl_id): ''>
+339
+340
+604
+32879
+{'code': False, 'mrp_bom_operations_product_ids': [], 'product_id': [17304, '108-0009'], 'product_uom': [34, 'PCE'], 'prenote': False, 'product_name': 'Plastic Sheet HDPE - 3/4" x 4\' x 8\' - Black', 'fixed_date': False, 'fixed_by': False, 'product_qty': 0.0052, 'routing_id': False, 'sub_products': [], 'type': 'normal', 'id': 32879, 'bom_lines': []}
+An exception occurred: <Fault warning -- UserError
+
+The operation cannot be completed:
+- Create/update: a mandatory field is not set.
+- Delete: another model requires the record being deleted. If possible, archive it instead.
+
+Model: Bill of Material (mrp.bom), Field: Product (product_tmpl_id): ''>
+605
+606
+607
+608
+609
+610
+611
+612
+613
+40287
+{'code': False, 'mrp_bom_operations_product_ids': [], 'product_id': [24137, '109-0003'], 'product_uom': [34, 'PCE'], 'prenote': False, 'product_name': 'PVC Straight Tube #0448468  10mm O.D x 15 CM', 'fixed_date': False, 'fixed_by': False, 'product_qty': 1.0, 'routing_id': False, 'sub_products': [], 'type': 'normal', 'id': 40287, 'bom_lines': [40288]}
+An exception occurred: <Fault warning -- UserError
+
+The operation cannot be completed:
+- Create/update: a mandatory field is not set.
+- Delete: another model requires the record being deleted. If possible, archive it instead.
+
+Model: Bill of Material (mrp.bom), Field: Product (product_tmpl_id): ''>
+614
+615
+616
+32990
+{'code': False, 'mrp_bom_operations_product_ids': [], 'product_id': [17332, '110-0004'], 'product_uom': [33, 'Foot'], 'prenote': False, 'product_name': 'Channel - HRS - 1-1/2" x 9/16" x3/16" x 20\'', 'fixed_date': False, 'fixed_by': False, 'product_qty': 1.44, 'routing_id': False, 'sub_products': [], 'type': 'normal', 'id': 32990, 'bom_lines': []}
+An exception occurred: <Fault warning -- UserError
+
+The operation cannot be completed:
+- Create/update: a mandatory field is not set.
+- Delete: another model requires the record being deleted. If possible, archive it instead.
+
+Model: Bill of Material (mrp.bom), Field: Product (product_tmpl_id): ''>
+617
+618
+619
+620
+621
+622
+623
+36649
+{'code': False, 'mrp_bom_operations_product_ids': [], 'product_id': [17323, '110-0009'], 'product_uom': [33, 'Foot'], 'prenote': False, 'product_name': 'Flat Bar - CRS - 3/16" x 1.5" x 12\' C1018', 'fixed_date': False, 'fixed_by': False, 'product_qty': 0.1667, 'routing_id': False, 'sub_products': [], 'type': 'normal', 'id': 36649, 'bom_lines': []}
+An exception occurred: <Fault warning -- UserError
+
+The operation cannot be completed:
+- Create/update: a mandatory field is not set.
+- Delete: another model requires the record being deleted. If possible, archive it instead.
+
+Model: Bill of Material (mrp.bom), Field: Product (product_tmpl_id): ''>
+624
+36651
+{'code': False, 'mrp_bom_operations_product_ids': [], 'product_id': [17323, '110-0009'], 'product_uom': [33, 'Foot'], 'prenote': False, 'product_name': 'Flat Bar - CRS - 3/16" x 1.5" x 12\' C1018', 'fixed_date': False, 'fixed_by': False, 'product_qty': 0.1333, 'routing_id': False, 'sub_products': [], 'type': 'normal', 'id': 36651, 'bom_lines': []}
+An exception occurred: <Fault warning -- UserError
+
+The operation cannot be completed:
+- Create/update: a mandatory field is not set.
+- Delete: another model requires the record being deleted. If possible, archive it instead.
+
+Model: Bill of Material (mrp.bom), Field: Product (product_tmpl_id): ''>
+625
+32986
+{'code': False, 'mrp_bom_operations_product_ids': [], 'product_id': [17323, '110-0009'], 'product_uom': [33, 'Foot'], 'prenote': False, 'product_name': 'Flat Bar - CRS - 3/16" x 1.5" x 12\' C1018', 'fixed_date': False, 'fixed_by': False, 'product_qty': 1.117, 'routing_id': False, 'sub_products': [], 'type': 'normal', 'id': 32986, 'bom_lines': []}
+An exception occurred: <Fault warning -- UserError
+
+The operation cannot be completed:
+- Create/update: a mandatory field is not set.
+- Delete: another model requires the record being deleted. If possible, archive it instead.
+
+Model: Bill of Material (mrp.bom), Field: Product (product_tmpl_id): ''>
+626
+36615
+{'code': False, 'mrp_bom_operations_product_ids': [], 'product_id': [17323, '110-0009'], 'product_uom': [33, 'Foot'], 'prenote': False, 'product_name': 'Flat Bar - CRS - 3/16" x 1.5" x 12\' C1018', 'fixed_date': False, 'fixed_by': False, 'product_qty': 0.0833, 'routing_id': False, 'sub_products': [], 'type': 'normal', 'id': 36615, 'bom_lines': []}
+An exception occurred: <Fault warning -- UserError
+
+The operation cannot be completed:
+- Create/update: a mandatory field is not set.
+- Delete: another model requires the record being deleted. If possible, archive it instead.
+
+Model: Bill of Material (mrp.bom), Field: Product (product_tmpl_id): ''>
+627
+32854
+{'code': False, 'mrp_bom_operations_product_ids': [], 'product_id': [17323, '110-0009'], 'product_uom': [33, 'Foot'], 'prenote': False, 'product_name': 'Flat Bar - CRS - 3/16" x 1.5" x 12\' C1018', 'fixed_date': False, 'fixed_by': False, 'product_qty': 1.17, 'routing_id': False, 'sub_products': [], 'type': 'normal', 'id': 32854, 'bom_lines': []}
+An exception occurred: <Fault warning -- UserError
+
+The operation cannot be completed:
+- Create/update: a mandatory field is not set.
+- Delete: another model requires the record being deleted. If possible, archive it instead.
+
+Model: Bill of Material (mrp.bom), Field: Product (product_tmpl_id): ''>
+628
+32916
+{'code': False, 'mrp_bom_operations_product_ids': [], 'product_id': [17323, '110-0009'], 'product_uom': [33, 'Foot'], 'prenote': False, 'product_name': 'Flat Bar - CRS - 3/16" x 1.5" x 12\' C1018', 'fixed_date': False, 'fixed_by': False, 'product_qty': 0.8, 'routing_id': False, 'sub_products': [], 'type': 'normal', 'id': 32916, 'bom_lines': []}
+An exception occurred: <Fault warning -- UserError
+
+The operation cannot be completed:
+- Create/update: a mandatory field is not set.
+- Delete: another model requires the record being deleted. If possible, archive it instead.
+
+Model: Bill of Material (mrp.bom), Field: Product (product_tmpl_id): ''>
+629
+32935
+{'code': False, 'mrp_bom_operations_product_ids': [], 'product_id': [17323, '110-0009'], 'product_uom': [33, 'Foot'], 'prenote': False, 'product_name': 'Flat Bar - CRS - 3/16" x 1.5" x 12\' C1018', 'fixed_date': False, 'fixed_by': False, 'product_qty': 0.1458, 'routing_id': False, 'sub_products': [], 'type': 'normal', 'id': 32935, 'bom_lines': []}
+An exception occurred: <Fault warning -- UserError
+
+The operation cannot be completed:
+- Create/update: a mandatory field is not set.
+- Delete: another model requires the record being deleted. If possible, archive it instead.
+
+Model: Bill of Material (mrp.bom), Field: Product (product_tmpl_id): ''>
+630
+37001
+{'code': False, 'mrp_bom_operations_product_ids': [], 'product_id': [17323, '110-0009'], 'product_uom': [33, 'Foot'], 'prenote': False, 'product_name': 'Flat Bar - CRS - 3/16" x 1.5" x 12\' C1018', 'fixed_date': False, 'fixed_by': False, 'product_qty': 2.8, 'routing_id': False, 'sub_products': [], 'type': 'normal', 'id': 37001, 'bom_lines': []}
+An exception occurred: <Fault warning -- UserError
+
+The operation cannot be completed:
+- Create/update: a mandatory field is not set.
+- Delete: another model requires the record being deleted. If possible, archive it instead.
+
+Model: Bill of Material (mrp.bom), Field: Product (product_tmpl_id): ''>
+631
+32878
+{'code': False, 'mrp_bom_operations_product_ids': [], 'product_id': [17323, '110-0009'], 'product_uom': [33, 'Foot'], 'prenote': False, 'product_name': 'Flat Bar - CRS - 3/16" x 1.5" x 12\' C1018', 'fixed_date': False, 'fixed_by': False, 'product_qty': 2.89, 'routing_id': False, 'sub_products': [], 'type': 'normal', 'id': 32878, 'bom_lines': []}
+An exception occurred: <Fault warning -- UserError
+
+The operation cannot be completed:
+- Create/update: a mandatory field is not set.
+- Delete: another model requires the record being deleted. If possible, archive it instead.
+
+Model: Bill of Material (mrp.bom), Field: Product (product_tmpl_id): ''>
+632
+32962
+{'code': False, 'mrp_bom_operations_product_ids': [], 'product_id': [17323, '110-0009'], 'product_uom': [33, 'Foot'], 'prenote': False, 'product_name': 'Flat Bar - CRS - 3/16" x 1.5" x 12\' C1018', 'fixed_date': False, 'fixed_by': False, 'product_qty': 0.98, 'routing_id': False, 'sub_products': [], 'type': 'normal', 'id': 32962, 'bom_lines': []}
+An exception occurred: <Fault warning -- UserError
+
+The operation cannot be completed:
+- Create/update: a mandatory field is not set.
+- Delete: another model requires the record being deleted. If possible, archive it instead.
+
+Model: Bill of Material (mrp.bom), Field: Product (product_tmpl_id): ''>
+633
+33007
+{'code': False, 'mrp_bom_operations_product_ids': [], 'product_id': [17323, '110-0009'], 'product_uom': [33, 'Foot'], 'prenote': False, 'product_name': 'Flat Bar - CRS - 3/16" x 1.5" x 12\' C1018', 'fixed_date': False, 'fixed_by': False, 'product_qty': 0.125, 'routing_id': False, 'sub_products': [], 'type': 'normal', 'id': 33007, 'bom_lines': []}
+An exception occurred: <Fault warning -- UserError
+
+The operation cannot be completed:
+- Create/update: a mandatory field is not set.
+- Delete: another model requires the record being deleted. If possible, archive it instead.
+
+Model: Bill of Material (mrp.bom), Field: Product (product_tmpl_id): ''>
+634
+32923
+{'code': False, 'mrp_bom_operations_product_ids': [], 'product_id': [17323, '110-0009'], 'product_uom': [33, 'Foot'], 'prenote': False, 'product_name': 'Flat Bar - CRS - 3/16" x 1.5" x 12\' C1018', 'fixed_date': False, 'fixed_by': False, 'product_qty': 1.03, 'routing_id': False, 'sub_products': [], 'type': 'normal', 'id': 32923, 'bom_lines': []}
+An exception occurred: <Fault warning -- UserError
+
+The operation cannot be completed:
+- Create/update: a mandatory field is not set.
+- Delete: another model requires the record being deleted. If possible, archive it instead.
+
+Model: Bill of Material (mrp.bom), Field: Product (product_tmpl_id): ''>
+635
+36650
+{'code': False, 'mrp_bom_operations_product_ids': [], 'product_id': [17323, '110-0009'], 'product_uom': [33, 'Foot'], 'prenote': False, 'product_name': 'Flat Bar - CRS - 3/16" x 1.5" x 12\' C1018', 'fixed_date': False, 'fixed_by': False, 'product_qty': 0.125, 'routing_id': False, 'sub_products': [], 'type': 'normal', 'id': 36650, 'bom_lines': []}
+An exception occurred: <Fault warning -- UserError
+
+The operation cannot be completed:
+- Create/update: a mandatory field is not set.
+- Delete: another model requires the record being deleted. If possible, archive it instead.
+
+Model: Bill of Material (mrp.bom), Field: Product (product_tmpl_id): ''>
+636
+637
+638
+36889
+{'code': False, 'mrp_bom_operations_product_ids': [], 'product_id': [17342, '110-0012'], 'product_uom': [33, 'Foot'], 'prenote': False, 'product_name': 'Flat Bar - HRS - 1/2" x 3 -1/2" ', 'fixed_date': False, 'fixed_by': False, 'product_qty': 0.04, 'routing_id': False, 'sub_products': [], 'type': 'normal', 'id': 36889, 'bom_lines': []}
+An exception occurred: <Fault warning -- UserError
+
+The operation cannot be completed:
+- Create/update: a mandatory field is not set.
+- Delete: another model requires the record being deleted. If possible, archive it instead.
+
+Model: Bill of Material (mrp.bom), Field: Product (product_tmpl_id): ''>
+639
+33006
+{'code': False, 'mrp_bom_operations_product_ids': [], 'product_id': [17342, '110-0012'], 'product_uom': [33, 'Foot'], 'prenote': False, 'product_name': 'Flat Bar - HRS - 1/2" x 3 -1/2" ', 'fixed_date': False, 'fixed_by': False, 'product_qty': 0.0588, 'routing_id': False, 'sub_products': [], 'type': 'normal', 'id': 33006, 'bom_lines': []}
+An exception occurred: <Fault warning -- UserError
+
+The operation cannot be completed:
+- Create/update: a mandatory field is not set.
+- Delete: another model requires the record being deleted. If possible, archive it instead.
+
+Model: Bill of Material (mrp.bom), Field: Product (product_tmpl_id): ''>
+640
+641
+642
+

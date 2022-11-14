@@ -1,0 +1,14 @@
+63038,"[28264, '300-0065']","<Fault warning -- UserError
+
+The operation cannot be completed:
+- Create/update: a mandatory field is not set.
+- Delete: another model requires the record being deleted. If possible, archive it instead.
+
+Model: Bill of Material (mrp.bom), Field: Product (product_tmpl_id): ''>"
+30760,"[18026, '302-0007']","<Fault warning -- UserError
+
+The operation cannot be completed:
+- Create/update: a mandatory field is not set.
+- Delete: another model requires the record being deleted. If possible, archive it instead.
+
+Model: Bill of Material Line (mrp.bom.line), Field: Component (product_id): ''>"

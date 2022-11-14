@@ -1,40 +1,38 @@
 
-
 from  xmlrpc import client
 import xmlrpc.client
+import csv
 username = 'admin'
-pwd = 'admin'
-dbname = 'Adamson_nov_22'
-sock_common = client.ServerProxy('http://localhost:8069/xmlrpc/common')
+pwd = '@Adamson#ERP'
+dbname = 'adamson_oct19_2022'
+sock_common = client.ServerProxy('http://adamson.dev.bds.space/xmlrpc/common')
 uid = sock_common.login(dbname, username, pwd)
-sock = client.ServerProxy('http://localhost:8069/xmlrpc/object')
+sock = client.ServerProxy('http://adamson.dev.bds.space/xmlrpc/object')
 
 
-url = 'http://localhost:8007'
-db = 'Adamson15_oct31_22_new'
+url = 'http://3.109.84.120:5079'
+db = 'Adamson15-Base-test-migrate'
 user = 'admin'
-password = 'admin'
+password = '@Ad@m$0n*#135'
 common = xmlrpc.client.ServerProxy('{}/xmlrpc/2/common'.format(url))
 u_id = common.authenticate(db, user, password, {})
 version = common.version()
 models = xmlrpc.client.ServerProxy('{}/xmlrpc/2/object'.format(url))
 
-# usr = 'admin'
-# passw = 'admin'
-# db_name = 'Adamson15_oct31_22_new'
-# common = client.ServerProxy('http://localhost:8007/xmlrpc/common')
-# u_id = common.login(db_name, usr, passw)
-# soc = client.ServerProxy('http://localhost:8007/xmlrpc/common')
 
 
 
 
-customer_records = sock.execute_kw(dbname, uid, pwd, 'res.partner', 'search',[[['customer','=',True]]])
-suppliers_records = sock.execute_kw(dbname, uid, pwd, 'res.partner', 'search',[[['supplier','=',True]]])
-products_including_suppliers = sock.execute_kw(dbname, uid, pwd, 'product.product', 'search',[[]])
+both_records = sock.execute_kw(dbname, uid, pwd, 'res.partner', 'search',[[['supplier','=',True],['customer','=',True]]])
+
+customer_records = sock.execute_kw(dbname, uid, pwd, 'res.partner', 'search',[[['customer','=',True],['supplier','=',False]]])
+suppliers_records = sock.execute_kw(dbname, uid, pwd, 'res.partner', 'search',[[['supplier','=',True],['customer','=',False]]])
+
+suppliers_records_only = set(suppliers_records) - set(both_records)
+customer_records_only = set(customer_records) - set(both_records)
 
 
-fields = ['is_company','type','image','category_id','name','ref','payment_responsible_id',
+fields = ['id','is_company','type','image','category_id','name','ref','payment_responsible_id',
         'supp_name','receiving_person_id','street','street2','city','state_id','zip','country_id','website','phone','phone2','mobile','fax','email','user_id','section_id',
         'lang','date','vat_number','customer','supplier','carrier','insurance_amount','active',
         'opt_out','notification_email_send','stock_customer_rentals','rent_pricelist','property_product_pricelist','property_product_pricelist_purchase',
@@ -48,7 +46,7 @@ def create_value(data):
     
     contact_ids_list = False
     if data['child_ids']:
-       
+        
         contact_ids_list = []
         for id in data['child_ids']:
             
@@ -61,7 +59,7 @@ def create_value(data):
                 
                 partner_contact_ids = partner_contact[0]['id'] if partner_contact  else False
                 if partner_contact_ids:
-                    print(partner_contact_ids)
+                    
                     contact_ids_list.append(partner_contact_ids)
                     
                 
@@ -114,6 +112,7 @@ def create_value(data):
             }
            
             state_id =  models.execute_kw(db, u_id, password,'res.country.state', 'create', [val])
+    country_id = False
     if data['country_id']:
      
         partner_country = models.execute_kw(db, u_id, password,'res.country', 'search_read', [[['name', '=', data['country_id'][1]]]])
@@ -151,11 +150,11 @@ def create_value(data):
            
        
 
-    partner_parent_id  =False
+    parent_id  =False
     if data['parent_id']:
       
         partner_parent_id = models.execute_kw(db, u_id, password,'res.users', 'search_read', [[['name', '=', data['parent_id'][1]]]])
-       
+        parent_id  = partner_parent_id[0]['id'] if partner_parent_id  else False
         
 
     value = {
@@ -196,47 +195,32 @@ def create_value(data):
         'comment':data['comment'],
         'function':data['function'][1] if data['function'] else False,
         'title':title  if data['title'] else False,
-        'parent_id': partner_parent_id if partner_parent_id else False,
+        'parent_id': parent_id if parent_id else False,
     }   
     
-    models.execute_kw(db, u_id, password,'res.partner', 'create', [value])
-    # print(cre)
-# def create_vendor_product(data):
-#     print(data)
+    try:
+        models.execute_kw(db, u_id, password,'res.partner', 'create', [value])
+    except BaseException as error:
+       
+            writer = csv.writer(file)
+            writer.writerow([data['id'],value['name'], error])
+            print(data['id'])
+            print('An exception occurred: {}'.format(error))
+# ---------------------------------------Both Records--------------------------------------
+with open('data_migration_error.csv', 'w', newline='') as file:
+    # for both_record in both_records:
+    #     both = sock.execute_kw(dbname, uid, pwd,'res.partner', 'read', [both_record],{'fields': fields})  
+    #     create_value(both)  
+    # ---------------------------------------suppliers_records---------------------------------------
+    # for suppliers_record in suppliers_records_only:
+    #     suppliers = sock.execute_kw(dbname, uid, pwd,'res.partner', 'read', [suppliers_record],{'fields': fields})
+    
+    #     create_value(suppliers)  
 
-
-#     exit()
-# # ---------------------------------------products_including_suppliers---------------------------------------
-# pro_fields = [
-#     'image_medium','categ_id','default_code','name','sale_ok','purchase_ok','can_be_rent','outsourcing_ok',
-#     'type','uom_id','country_of_origin_id','sug_supplier_last_price','sug_supplier_last_price_currency_id','current_month_use',
-#     'last_month_use','last_average_use','description','active','procure_method','supply_method','use_underpoint',
-#     'op_location_id','ddrmp_type','cost_method','standard_price','real_standard_price','last_standard_price',
-#     'date_standard_price','date_real_standard_price','fixed_by','date_last_standard_price','uom_po_id',
-#     'seller_ids','description_purchase','qty_available','incoming_qty','outgoing_qty','procurement_qty',
-#     'loc_type_id','loc_row_id','loc_section_id','property_stock_procurement','property_stock_wip','property_stock_inventory','serial_sequence','unique_production_number','autogenerate',
-#     'autogenerate_purchase','track_production'
-# ]
-
-# for products_suppliers in products_including_suppliers:
-#     products = sock.execute_kw(dbname, uid, pwd,'product.product', 'read', [products_suppliers],{'fields': pro_fields})
-#     if products['seller_ids']:
-#         create_vendor_product(products)
-        
-# ---------------------------------------suppliers_records---------------------------------------
-for supplier_record in suppliers_records:
-    suppliers = sock.execute_kw(dbname, uid, pwd,'res.partner', 'read', [supplier_record],{'fields': fields})
-  
-    create_value(suppliers)  
-
-# ---------------------------------------customer_records---------------------------------------
-for customer_record in customer_records:
-    # exit()
-    customer = sock.execute_kw(dbname, uid, pwd,'res.partner', 'read', [customer_record],{'fields': fields})     
-    create_value(customer)  
-
-
+    # # ---------------------------------------customer_records---------------------------------------
+    for customer_record in customer_records_only:
+            customer = sock.execute_kw(dbname, uid, pwd,'res.partner', 'read', [customer_record],{'fields': fields})     
+            create_value(customer)  
     
     
-
-
+    
